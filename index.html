@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Apostas: Cara ou Coroa</title>
+    <title>Tigrinho</title>
     <style>
+        h1 {
+            color: white;
+        }
+        p {
+            color: white;
+        }
         body {
+            background-image: url("download.jpg");
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #000000;
             padding: 20px;
         }
         .bet-container {
-            background: #fff;
+            background: #0000007c;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -29,11 +36,12 @@
 
 <div class="bet-container">
     <h1>Tigrinho</h1>
-    <label for="betAmount">Valor da Aposta (R$):</label>
+    <label style="color: white;" for="betAmount">Valor da Aposta (R$):</label>
     <input type="text" id="betAmount" oninput="validateInput()">
     <div class="error" id="inputError"></div>
 
     <button onclick="placeBet()">Apostar</button>
+    <button onclick="sacar()">Sacar</button>
     
     <div class="result" id="result"></div>
     <div id="scoreboard">
@@ -47,7 +55,10 @@
     let wins = 0;
     let losses = 0;
     let balance = 100.00; // Saldo inicial
-
+    function sacar() {
+        const errorDiv = document.getElementById('inputError');
+        errorDiv.innerText = "Erro"
+    }
     function validateInput() {
         const input = document.getElementById('betAmount');
         const errorDiv = document.getElementById('inputError');
